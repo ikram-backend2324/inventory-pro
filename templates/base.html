@@ -271,14 +271,14 @@
             <div class="lang-switcher">
                 <form action="{% url 'set_language' %}" method="post" id="langForm">
                     {% csrf_token %}
-                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                    <input type="hidden" name="next" id="langNext" value="/">
                     <input type="hidden" name="language" id="langInput" value="">
                 </form>
                 <button type="button" class="lang-btn {% if LANGUAGE_CODE == 'uz' %}active{% endif %}" onclick="setLang('uz')">UZ</button>
                 <button type="button" class="lang-btn {% if LANGUAGE_CODE == 'ru' %}active{% endif %}" onclick="setLang('ru')">RU</button>
                 <button type="button" class="lang-btn {% if LANGUAGE_CODE == 'en' %}active{% endif %}" onclick="setLang('en')">EN</button>
             </div>
-            
+
             <div class="dropdown">
                 <div class="user-avatar" data-bs-toggle="dropdown" title="{{ user.username }}">
                     {{ user.username|slice:":1"|upper }}
@@ -302,7 +302,7 @@
             {{ message }}
         </div>
         {% endfor %}
-        
+
         {% block content %}{% endblock %}
     </div>
 </div>
@@ -317,8 +317,11 @@ function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('open');
 }
 function setLang(lang) {
-    document.getElementById('langInput').value = lang;
-    document.getElementById('langForm').submit();
+    var path = window.location.pathname;
+    var stripped = path.replace(/^\/(ru|uz|en)\//, '/').replace(/^\/(ru|uz|en)$/, '/');
+    document.getElementById("langInput").value = lang;
+    document.getElementById("langNext").value = stripped + window.location.search;
+    document.getElementById("langForm").submit();
 }
 function showLoading(text) {
     document.getElementById('loadingText').textContent = text || '{% trans "Processing..." %}';

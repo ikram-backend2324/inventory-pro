@@ -31,7 +31,7 @@
 <body>
 <div class="auth-card">
     <div class="lang-bar">
-        <form action="{% url 'set_language' %}" method="post" id="langForm3" style="display:none;">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" id="langInput3" value=""></form>
+        <form action="{% url 'set_language' %}" method="post" id="langForm3" style="display:none;">{% csrf_token %}<input type="hidden" name="next" id="langNext_langForm3" value="/"><input type="hidden" name="language" id="langInput3" value=""></form>
         <button type="button" class="lang-b {% if LANGUAGE_CODE == 'uz' %}active{% endif %}" onclick="setLang3('uz')">UZ</button>
         <button type="button" class="lang-b {% if LANGUAGE_CODE == 'ru' %}active{% endif %}" onclick="setLang3('ru')">RU</button>
         <button type="button" class="lang-b {% if LANGUAGE_CODE == 'en' %}active{% endif %}" onclick="setLang3('en')">EN</button>
@@ -56,6 +56,12 @@
         {% trans "Already have an account?" %} <a href="{% url 'accounts:login' %}" class="link-btn">{% trans "Login" %}</a>
     </div>
 </div>
-<script>function setLang3(l){document.getElementById('langInput3').value=l;document.getElementById('langForm3').submit();}</script>
+<script>function setLang3(l){
+    var path = window.location.pathname;
+    var stripped = path.replace(/^\/(ru|uz|en)\//, '/').replace(/^\/(ru|uz|en)$/, '/');
+    document.getElementById('langInput3').value=l;
+    document.getElementById('langNext_langForm3').value=stripped;
+    document.getElementById('langForm3').submit();
+}</script>
 </body>
 </html>
