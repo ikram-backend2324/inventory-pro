@@ -87,9 +87,16 @@ LOCALE_PATHS = [BASE_DIR / 'locale']
 TIME_ZONE = 'Asia/Tashkent'
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Only include STATICFILES_DIRS if the static folder actually exists
+_static_dir = BASE_DIR / 'static'
+if _static_dir.exists():
+    STATICFILES_DIRS = [_static_dir]
+
+# CompressedStaticFilesStorage avoids .map file errors from third-party packages
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
