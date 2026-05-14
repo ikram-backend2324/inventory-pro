@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Orders" %}{% endblock %}
+{% block page_title %}{% trans "Orders" %}{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="card-header-custom">
+        <h5><i class="fas fa-shopping-cart me-2 text-primary"></i>{% trans "All Orders" %} ({{ orders.count }})</h5>
+    </div>
+    <div class="p-0">
+        <table class="table-custom">
+            <thead><tr><th>{% trans "Order #" %}</th><th>{% trans "Type" %}</th><th>{% trans "Status" %}</th><th>{% trans "Supplier" %}</th><th>{% trans "Items" %}</th><th>{% trans "Total" %}</th><th>{% trans "Date" %}</th></tr></thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td><strong>{{ order.order_number }}</strong></td>
+                    <td><span class="badge-custom badge-info">{{ order.get_order_type_display }}</span></td>
+                    <td><span class="badge-custom {% if order.status == 'completed' %}badge-success{% elif order.status == 'pending' %}badge-warning{% elif order.status == 'cancelled' %}badge-danger{% else %}badge-info{% endif %}">{{ order.get_status_display }}</span></td>
+                    <td>{{ order.supplier.name|default:"-" }}</td>
+                    <td>{{ order.items.count }}</td>
+                    <td><strong>${{ order.total_amount }}</strong></td>
+                    <td style="font-size:12px;color:var(--text-muted);">{{ order.created_at|date:"d M Y" }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="7" style="text-align:center;color:var(--text-muted);padding:32px;">{% trans "No orders found" %}</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

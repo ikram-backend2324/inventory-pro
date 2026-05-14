@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Stock Movements" %}{% endblock %}
+{% block page_title %}{% trans "Stock Movements" %}{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="card-header-custom"><h5><i class="fas fa-exchange-alt me-2"></i>{% trans "Recent Stock Movements" %}</h5></div>
+    <div class="p-0">
+        <table class="table-custom">
+            <thead><tr><th>{% trans "Product" %}</th><th>{% trans "Type" %}</th><th>{% trans "Quantity" %}</th><th>{% trans "Reference" %}</th><th>{% trans "Notes" %}</th><th>{% trans "Date" %}</th></tr></thead>
+            <tbody>
+                {% for m in movements %}
+                <tr>
+                    <td><a href="{% url 'inventory:product_detail' m.product.pk %}" style="color:var(--primary);text-decoration:none;">{{ m.product.name }}</a></td>
+                    <td><span class="badge-custom {% if m.movement_type == 'in' %}badge-success{% elif m.movement_type == 'out' %}badge-danger{% else %}badge-secondary{% endif %}">{{ m.get_movement_type_display }}</span></td>
+                    <td>{{ m.quantity }}</td>
+                    <td>{{ m.reference|default:"-" }}</td>
+                    <td style="font-size:13px;color:var(--text-muted);">{{ m.notes|default:"-"|truncatechars:40 }}</td>
+                    <td style="font-size:12px;color:var(--text-muted);">{{ m.created_at|date:"d M Y H:i" }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:32px;">{% trans "No movements found" %}</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

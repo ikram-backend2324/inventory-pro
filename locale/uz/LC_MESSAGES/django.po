@@ -1,0 +1,294 @@
+# Uzbek translations
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uz\n"
+
+msgid "Dashboard"
+msgstr "Bosh sahifa"
+
+msgid "Products"
+msgstr "Mahsulotlar"
+
+msgid "Orders"
+msgstr "Buyurtmalar"
+
+msgid "Suppliers"
+msgstr "Ta'minotchilar"
+
+msgid "Stock Movements"
+msgstr "Tovar harakati"
+
+msgid "Forecasts"
+msgstr "Prognozlar"
+
+msgid "AI Assistant"
+msgstr "AI Yordamchi"
+
+msgid "Login"
+msgstr "Kirish"
+
+msgid "Register"
+msgstr "Ro'yxatdan o'tish"
+
+msgid "Logout"
+msgstr "Chiqish"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Username"
+msgstr "Foydalanuvchi nomi"
+
+msgid "Password"
+msgstr "Parol"
+
+msgid "Email"
+msgstr "Elektron pochta"
+
+msgid "Sign In"
+msgstr "Kirish"
+
+msgid "Create Account"
+msgstr "Hisob yaratish"
+
+msgid "Total Products"
+msgstr "Jami mahsulotlar"
+
+msgid "Low Stock Items"
+msgstr "Kam qoldiq"
+
+msgid "Pending Orders"
+msgstr "Kutilayotgan buyurtmalar"
+
+msgid "Total Stock Value"
+msgstr "Ombor qiymati"
+
+msgid "Recent Orders"
+msgstr "So'nggi buyurtmalar"
+
+msgid "View All"
+msgstr "Hammasini ko'rish"
+
+msgid "Low Stock Alerts"
+msgstr "Kam qoldiq ogohlantirishlari"
+
+msgid "All stock OK"
+msgstr "Barcha qoldiqlar yaxshi"
+
+msgid "Recent Stock Movements"
+msgstr "So'nggi tovar harakati"
+
+msgid "Latest Forecasts"
+msgstr "So'nggi prognozlar"
+
+msgid "No forecasts yet."
+msgstr "Hali prognoz yo'q."
+
+msgid "Ask AI"
+msgstr "AI'dan so'rash"
+
+msgid "Processing..."
+msgstr "Ishlanmoqda..."
+
+msgid "Inventory Management"
+msgstr "Inventarizatsiya boshqaruvi"
+
+msgid "Order Forecasting"
+msgstr "Buyurtmalarni prognoz qilish"
+
+msgid "Generate AI Forecast"
+msgstr "AI Prognoz yaratish"
+
+msgid "Select Product"
+msgstr "Mahsulot tanlang"
+
+msgid "Forecast Period (days)"
+msgstr "Prognoz davri (kunlar)"
+
+msgid "Generate Forecast"
+msgstr "Prognoz yaratish"
+
+msgid "Forecast History"
+msgstr "Prognozlar tarixi"
+
+msgid "Product"
+msgstr "Mahsulot"
+
+msgid "Category"
+msgstr "Kategoriya"
+
+msgid "Price"
+msgstr "Narx"
+
+msgid "Stock"
+msgstr "Ombor"
+
+msgid "Status"
+msgstr "Holat"
+
+msgid "Value"
+msgstr "Qiymat"
+
+msgid "In Stock"
+msgstr "Omborda bor"
+
+msgid "Low Stock"
+msgstr "Kam qoldiq"
+
+msgid "Type"
+msgstr "Turi"
+
+msgid "Date"
+msgstr "Sana"
+
+msgid "Confidence"
+msgstr "Ishonch"
+
+msgid "Predicted"
+msgstr "Prognoz"
+
+msgid "Send"
+msgstr "Yuborish"
+
+msgid "Main"
+msgstr "Asosiy"
+
+msgid "Inventory"
+msgstr "Ombor"
+
+msgid "AI & Analytics"
+msgstr "AI va Tahlil"
+
+msgid "Admin Panel"
+msgstr "Admin paneli"
+
+msgid "Admin"
+msgstr "Administrator"
+
+msgid "Don't have an account?"
+msgstr "Hisobingiz yo'qmi?"
+
+msgid "Already have an account?"
+msgstr "Hisobingiz bormi?"
+
+msgid "Invalid username or password"
+msgstr "Noto'g'ri foydalanuvchi nomi yoki parol"
+
+msgid "Passwords do not match"
+msgstr "Parollar mos kelmaydi"
+
+msgid "Username already taken"
+msgstr "Bu foydalanuvchi nomi band"
+
+msgid "Account created successfully!"
+msgstr "Hisob muvaffaqiyatli yaratildi!"
+
+msgid "Order Forecasting & Inventory"
+msgstr "Buyurtma prognozi va inventarizatsiya"
+
+msgid "Join InvStock today"
+msgstr "Bugun qo'shiling"
+
+msgid "Confirm Password"
+msgstr "Parolni tasdiqlang"
+
+msgid "Enter username"
+msgstr "Foydalanuvchi nomini kiriting"
+
+msgid "Enter password"
+msgstr "Parolni kiriting"
+
+msgid "No products found"
+msgstr "Mahsulotlar topilmadi"
+
+msgid "No orders found"
+msgstr "Buyurtmalar topilmadi"
+
+msgid "No movements found"
+msgstr "Harakatlar topilmadi"
+
+msgid "No movements yet"
+msgstr "Hali harakat yo'q"
+
+msgid "No movements recorded"
+msgstr "Harakatlar qayd etilmagan"
+
+msgid "No orders yet"
+msgstr "Hali buyurtma yo'q"
+
+msgid "All Categories"
+msgstr "Barcha kategoriyalar"
+
+msgid "Low Stock Only"
+msgstr "Faqat kam qoldiq"
+
+msgid "Product Details"
+msgstr "Mahsulot tafsilotlari"
+
+msgid "Forecast Generated!"
+msgstr "Prognoz yaratildi!"
+
+msgid "Predicted Demand"
+msgstr "Prognoz talab"
+
+msgid "Error generating forecast"
+msgstr "Prognoz yaratishda xato"
+
+msgid "Please select a product"
+msgstr "Iltimos, mahsulot tanlang"
+
+msgid "No forecasts yet. Generate one!"
+msgstr "Hali prognoz yo'q. Yarating!"
+
+msgid "Which products are low on stock?"
+msgstr "Qaysi mahsulotlar tugayapti?"
+
+msgid "Forecast demand for next month"
+msgstr "Keyingi oy uchun talab prognozi"
+
+msgid "Which products should I reorder?"
+msgstr "Qaysi mahsulotlarni qayta buyurtma qilish kerak?"
+
+msgid "Analyze slow-moving inventory"
+msgstr "Sekin sotiladigan tovarlarni tahlil qilish"
+
+msgid "Ask about inventory, forecasts, orders..."
+msgstr "Ombor, prognozlar, buyurtmalar haqida so'rang..."
+
+msgid "Recent Questions"
+msgstr "So'nggi savollar"
+
+msgid "No history yet"
+msgstr "Tarix yo'q"
+
+msgid "Hello! I'm your AI inventory assistant. I have access to your product data, stock levels, and order history. Ask me anything about your inventory or request demand forecasts!"
+msgstr "Salom! Men sizning AI ombor yordamchingizman. Mahsulot ma'lumotlari, ombor darajalari va buyurtmalar tarixiga kirish imkonim bor. Inventarizatsiya haqida istalgan savolni bering!"
+
+msgid "English"
+msgstr "Inglizcha"
+
+msgid "Russian"
+msgstr "Ruscha"
+
+msgid "Uzbek"
+msgstr "O'zbekcha"
+
+msgid "Generating AI forecast..."
+msgstr "AI prognoz yaratilmoqda..."
+
+msgid "Profile Information"
+msgstr "Profil ma'lumotlari"
+
+msgid "Joined"
+msgstr "Qo'shilgan sana"
+
+msgid "Last Login"
+msgstr "Oxirgi kirish"
+
+msgid "in stock"
+msgstr "omborda"
+
+msgid "days"
+msgstr "kun"

@@ -1,0 +1,295 @@
+# Russian translations
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+
+msgid "Dashboard"
+msgstr "Панель управления"
+
+msgid "Products"
+msgstr "Товары"
+
+msgid "Orders"
+msgstr "Заказы"
+
+msgid "Suppliers"
+msgstr "Поставщики"
+
+msgid "Stock Movements"
+msgstr "Движение товаров"
+
+msgid "Forecasts"
+msgstr "Прогнозы"
+
+msgid "AI Assistant"
+msgstr "ИИ Ассистент"
+
+msgid "Login"
+msgstr "Войти"
+
+msgid "Register"
+msgstr "Регистрация"
+
+msgid "Logout"
+msgstr "Выйти"
+
+msgid "Profile"
+msgstr "Профиль"
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Email"
+msgstr "Эл. почта"
+
+msgid "Sign In"
+msgstr "Войти"
+
+msgid "Create Account"
+msgstr "Создать аккаунт"
+
+msgid "Total Products"
+msgstr "Всего товаров"
+
+msgid "Low Stock Items"
+msgstr "Мало на складе"
+
+msgid "Pending Orders"
+msgstr "Ожидающие заказы"
+
+msgid "Total Stock Value"
+msgstr "Стоимость запасов"
+
+msgid "Recent Orders"
+msgstr "Последние заказы"
+
+msgid "View All"
+msgstr "Посмотреть все"
+
+msgid "Low Stock Alerts"
+msgstr "Предупреждения"
+
+msgid "All stock OK"
+msgstr "Все запасы в норме"
+
+msgid "Recent Stock Movements"
+msgstr "Движение товаров"
+
+msgid "Latest Forecasts"
+msgstr "Последние прогнозы"
+
+msgid "No forecasts yet."
+msgstr "Прогнозов пока нет."
+
+msgid "Ask AI"
+msgstr "Спросить ИИ"
+
+msgid "Processing..."
+msgstr "Обработка..."
+
+msgid "Inventory Management"
+msgstr "Управление запасами"
+
+msgid "Order Forecasting"
+msgstr "Прогнозирование заказов"
+
+msgid "Generate AI Forecast"
+msgstr "ИИ Прогноз"
+
+msgid "Select Product"
+msgstr "Выберите товар"
+
+msgid "Forecast Period (days)"
+msgstr "Период прогноза (дней)"
+
+msgid "Generate Forecast"
+msgstr "Сгенерировать прогноз"
+
+msgid "Forecast History"
+msgstr "История прогнозов"
+
+msgid "Product"
+msgstr "Товар"
+
+msgid "Category"
+msgstr "Категория"
+
+msgid "Price"
+msgstr "Цена"
+
+msgid "Stock"
+msgstr "Склад"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Value"
+msgstr "Стоимость"
+
+msgid "In Stock"
+msgstr "В наличии"
+
+msgid "Low Stock"
+msgstr "Мало"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Confidence"
+msgstr "Уверенность"
+
+msgid "Predicted"
+msgstr "Прогноз"
+
+msgid "Send"
+msgstr "Отправить"
+
+msgid "Main"
+msgstr "Главное"
+
+msgid "Inventory"
+msgstr "Склад"
+
+msgid "AI & Analytics"
+msgstr "ИИ и Аналитика"
+
+msgid "Admin Panel"
+msgstr "Панель администратора"
+
+msgid "Admin"
+msgstr "Администратор"
+
+msgid "Don't have an account?"
+msgstr "Нет аккаунта?"
+
+msgid "Already have an account?"
+msgstr "Уже есть аккаунт?"
+
+msgid "Invalid username or password"
+msgstr "Неверное имя пользователя или пароль"
+
+msgid "Passwords do not match"
+msgstr "Пароли не совпадают"
+
+msgid "Username already taken"
+msgstr "Имя пользователя занято"
+
+msgid "Account created successfully!"
+msgstr "Аккаунт успешно создан!"
+
+msgid "Order Forecasting & Inventory"
+msgstr "Прогнозирование и управление запасами"
+
+msgid "Join InvStock today"
+msgstr "Присоединяйтесь сегодня"
+
+msgid "Confirm Password"
+msgstr "Подтвердите пароль"
+
+msgid "Enter username"
+msgstr "Введите имя пользователя"
+
+msgid "Enter password"
+msgstr "Введите пароль"
+
+msgid "No products found"
+msgstr "Товары не найдены"
+
+msgid "No orders found"
+msgstr "Заказы не найдены"
+
+msgid "No movements found"
+msgstr "Движений нет"
+
+msgid "No movements yet"
+msgstr "Движений пока нет"
+
+msgid "No movements recorded"
+msgstr "Движений не зарегистрировано"
+
+msgid "No orders yet"
+msgstr "Заказов пока нет"
+
+msgid "All Categories"
+msgstr "Все категории"
+
+msgid "Low Stock Only"
+msgstr "Только мало"
+
+msgid "Product Details"
+msgstr "Детали товара"
+
+
+msgid "Forecast Generated!"
+msgstr "Прогноз создан!"
+
+msgid "Predicted Demand"
+msgstr "Прогноз спроса"
+
+msgid "Error generating forecast"
+msgstr "Ошибка создания прогноза"
+
+msgid "Please select a product"
+msgstr "Выберите товар"
+
+msgid "No forecasts yet. Generate one!"
+msgstr "Прогнозов нет. Создайте первый!"
+
+msgid "Which products are low on stock?"
+msgstr "Какие товары заканчиваются?"
+
+msgid "Forecast demand for next month"
+msgstr "Прогноз спроса на следующий месяц"
+
+msgid "Which products should I reorder?"
+msgstr "Какие товары нужно дозаказать?"
+
+msgid "Analyze slow-moving inventory"
+msgstr "Анализ медленно продающихся товаров"
+
+msgid "Ask about inventory, forecasts, orders..."
+msgstr "Спросить о складе, прогнозах, заказах..."
+
+msgid "Recent Questions"
+msgstr "Последние вопросы"
+
+msgid "No history yet"
+msgstr "История пуста"
+
+msgid "Hello! I'm your AI inventory assistant. I have access to your product data, stock levels, and order history. Ask me anything about your inventory or request demand forecasts!"
+msgstr "Привет! Я ваш ИИ-ассистент по складу. У меня есть доступ к данным о товарах, уровнях запасов и истории заказов. Спрашивайте всё об инвентаре или запросите прогнозы спроса!"
+
+msgid "English"
+msgstr "Английский"
+
+msgid "Russian"
+msgstr "Русский"
+
+msgid "Uzbek"
+msgstr "Узбекский"
+
+msgid "Generating AI forecast..."
+msgstr "Генерируется ИИ-прогноз..."
+
+msgid "Profile Information"
+msgstr "Информация профиля"
+
+msgid "Joined"
+msgstr "Дата регистрации"
+
+msgid "Last Login"
+msgstr "Последний вход"
+
+msgid "in stock"
+msgstr "на складе"
+
+msgid "days"
+msgstr "дней"

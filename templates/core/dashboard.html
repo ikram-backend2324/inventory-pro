@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Dashboard" %} - InvStock{% endblock %}
+{% block page_title %}{% trans "Dashboard" %}{% endblock %}
+{% block content %}
+<div class="row g-3 mb-4">
+    <div class="col-md-3 col-6">
+        <div class="stat-card">
+            <div class="stat-icon blue"><i class="fas fa-boxes"></i></div>
+            <div class="stat-info">
+                <div class="stat-value">{{ total_products }}</div>
+                <div class="stat-label">{% trans "Total Products" %}</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="stat-card">
+            <div class="stat-icon red"><i class="fas fa-exclamation-triangle"></i></div>
+            <div class="stat-info">
+                <div class="stat-value">{{ low_stock_count }}</div>
+                <div class="stat-label">{% trans "Low Stock Items" %}</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="stat-card">
+            <div class="stat-icon orange"><i class="fas fa-shopping-cart"></i></div>
+            <div class="stat-info">
+                <div class="stat-value">{{ pending_orders }}</div>
+                <div class="stat-label">{% trans "Pending Orders" %}</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="stat-card">
+            <div class="stat-icon green"><i class="fas fa-dollar-sign"></i></div>
+            <div class="stat-info">
+                <div class="stat-value">${{ total_stock_value|floatformat:0 }}</div>
+                <div class="stat-label">{% trans "Total Stock Value" %}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row g-3 mb-4">
+    <div class="col-md-7">
+        <div class="card">
+            <div class="card-header-custom">
+                <h5><i class="fas fa-shopping-cart me-2 text-primary"></i>{% trans "Recent Orders" %}</h5>
+                <a href="{% url 'inventory:order_list' %}" class="btn-outline-custom" style="font-size:12px;padding:5px 12px;">{% trans "View All" %}</a>
+            </div>
+            <div class="p-0">
+                <table class="table-custom">
+                    <thead><tr><th>{% trans "Order #" %}</th><th>{% trans "Type" %}</th><th>{% trans "Amount" %}</th><th>{% trans "Status" %}</th></tr></thead>
+                    <tbody>
+                        {% for order in recent_orders %}
+                        <tr>
+                            <td><strong>{{ order.order_number }}</strong></td>
+                            <td>{{ order.get_order_type_display }}</td>
+                            <td>${{ order.total_amount }}</td>
+                            <td><span class="badge-custom {% if order.status == 'completed' %}badge-success{% elif order.status == 'pending' %}badge-warning{% elif order.status == 'cancelled' %}badge-danger{% else %}badge-info{% endif %}">{{ order.get_status_display }}</span></td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="4" style="text-align:center;color:var(--text-muted);padding:24px;">{% trans "No orders yet" %}</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header-custom">
+                <h5><i class="fas fa-exclamation-triangle me-2 text-danger"></i>{% trans "Low Stock Alerts" %}</h5>
+                <a href="{% url 'inventory:product_list' %}?low_stock=1" class="btn-outline-custom" style="font-size:12px;padding:5px 12px;">{% trans "View All" %}</a>
+            </div>
+            <div class="p-0">
+                <table class="table-custom">
+                    <thead><tr><th>{% trans "Product" %}</th><th>{% trans "Stock" %}</th><th>{% trans "Min" %}</th></tr></thead>
+                    <tbody>
+                        {% for product in low_stock_products %}
+                        <tr>
+                            <td><a href="{% url 'inventory:product_detail' product.pk %}" style="color:var(--primary);text-decoration:none;">{{ product.name|truncatechars:22 }}</a></td>
+                            <td><span style="color:var(--danger);font-weight:600;">{{ product.quantity_in_stock }}</span></td>
+                            <td>{{ product.reorder_level }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="3" style="text-align:center;color:var(--text-muted);padding:24px;">All stock OK</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row g-3">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header-custom">
+                <h5><i class="fas fa-exchange-alt me-2"></i>{% trans "Recent Stock Movements" %}</h5>
+                <a href="{% url 'inventory:stock_movements' %}" class="btn-outline-custom" style="font-size:12px;padding:5px 12px;">{% trans "View All" %}</a>
+            </div>
+            <div class="p-0">
+                <table class="table-custom">
+                    <thead><tr><th>{% trans "Product" %}</th><th>{% trans "Type" %}</th><th>{% trans "Qty" %}</th><th>{% trans "Date" %}</th></tr></thead>
+                    <tbody>
+                        {% for m in recent_movements %}
+                        <tr>
+                            <td>{{ m.product.name|truncatechars:20 }}</td>
+                            <td><span class="badge-custom {% if m.movement_type == 'in' %}badge-success{% elif m.movement_type == 'out' %}badge-danger{% else %}badge-secondary{% endif %}">{{ m.get_movement_type_display }}</span></td>
+                            <td>{{ m.quantity }}</td>
+                            <td style="font-size:12px;color:var(--text-muted);">{{ m.created_at|date:"d M" }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="4" style="text-align:center;color:var(--text-muted);padding:24px;">{% trans "No movements yet" %}</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header-custom">
+                <h5><i class="fas fa-chart-line me-2 text-primary"></i>{% trans "Latest Forecasts" %}</h5>
+                <a href="{% url 'forecasting:forecast_list' %}" class="btn-outline-custom" style="font-size:12px;padding:5px 12px;">{% trans "View All" %}</a>
+            </div>
+            <div class="card-body-custom">
+                {% for forecast in recent_forecasts %}
+                <div style="padding:12px 0;border-bottom:1px solid var(--border);">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                        <strong style="font-size:14px;">{{ forecast.product.name }}</strong>
+                        <span class="badge-custom badge-info">{{ forecast.period_days }}d</span>
+                    </div>
+                    <div style="font-size:13px;color:var(--text-muted);">
+                        {% trans "Predicted" %}: <strong>{{ forecast.predicted_demand|floatformat:0 }}</strong> | {% trans "Confidence" %}: <strong>{{ forecast.confidence_score|floatformat:"0" }}%</strong>
+                    </div>
+                </div>
+                {% empty %}
+                <div style="text-align:center;color:var(--text-muted);padding:24px;">
+                    <i class="fas fa-robot" style="font-size:32px;margin-bottom:10px;display:block;opacity:0.3;"></i>
+                    {% trans "No forecasts yet." %}
+                    <br><br>
+                    <a href="{% url 'forecasting:ai_assistant' %}" class="btn-primary-custom" style="font-size:13px;padding:7px 14px;"><i class="fas fa-robot"></i> {% trans "Ask AI" %}</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

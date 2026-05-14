@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ product.name }}{% endblock %}
+{% block page_title %}{{ product.name }}{% endblock %}
+{% block content %}
+<div class="row g-3">
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header-custom"><h5><i class="fas fa-box me-2"></i>{% trans "Product Details" %}</h5></div>
+            <div class="card-body-custom">
+                <table class="table-custom">
+                    <tr><td><strong>{% trans "Name" %}</strong></td><td>{{ product.name }}</td></tr>
+                    <tr><td><strong>SKU</strong></td><td style="font-family:monospace;">{{ product.sku }}</td></tr>
+                    <tr><td><strong>{% trans "Category" %}</strong></td><td>{{ product.category.name|default:"-" }}</td></tr>
+                    <tr><td><strong>{% trans "Supplier" %}</strong></td><td>{{ product.supplier.name|default:"-" }}</td></tr>
+                    <tr><td><strong>{% trans "Unit Price" %}</strong></td><td>${{ product.unit_price }}</td></tr>
+                    <tr><td><strong>{% trans "In Stock" %}</strong></td><td><strong {% if product.is_low_stock %}style="color:var(--danger)"{% else %}style="color:var(--success)"{% endif %}>{{ product.quantity_in_stock }}</strong></td></tr>
+                    <tr><td><strong>{% trans "Reorder Level" %}</strong></td><td>{{ product.reorder_level }}</td></tr>
+                    <tr><td><strong>{% trans "Reorder Qty" %}</strong></td><td>{{ product.reorder_quantity }}</td></tr>
+                    <tr><td><strong>{% trans "Stock Value" %}</strong></td><td>${{ product.stock_value|floatformat:2 }}</td></tr>
+                </table>
+                {% if product.description %}
+                <div style="margin-top:16px;padding:12px;background:var(--bg);border-radius:8px;font-size:14px;">{{ product.description }}</div>
+                {% endif %}
+                {% if product.is_low_stock %}
+                <div style="margin-top:16px;padding:12px 14px;background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.2);border-radius:8px;color:var(--danger);font-size:13px;">
+                    <i class="fas fa-exclamation-triangle me-2"></i>{% trans "Low stock! Consider reordering" %} {{ product.reorder_quantity }} {% trans "units." %}
+                </div>
+                {% endif %}
+                <div style="margin-top:16px;display:flex;gap:8px;">
+                    <a href="{% url 'forecasting:forecast_list' %}?product={{ product.pk }}" class="btn-primary-custom" style="font-size:13px;padding:8px 14px;"><i class="fas fa-chart-line"></i> {% trans "Forecast" %}</a>
+                    <a href="{% url 'inventory:product_list' %}" class="btn-outline-custom" style="font-size:13px;padding:8px 14px;"><i class="fas fa-arrow-left"></i> {% trans "Back" %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="card">
+            <div class="card-header-custom"><h5><i class="fas fa-exchange-alt me-2"></i>{% trans "Recent Stock Movements" %}</h5></div>
+            <div class="p-0">
+                <table class="table-custom">
+                    <thead><tr><th>{% trans "Type" %}</th><th>{% trans "Quantity" %}</th><th>{% trans "Reference" %}</th><th>{% trans "Date" %}</th></tr></thead>
+                    <tbody>
+                        {% for m in movements %}
+                        <tr>
+                            <td><span class="badge-custom {% if m.movement_type == 'in' %}badge-success{% elif m.movement_type == 'out' %}badge-danger{% else %}badge-secondary{% endif %}">{{ m.get_movement_type_display }}</span></td>
+                            <td>{{ m.quantity }}</td>
+                            <td>{{ m.reference|default:"-" }}</td>
+                            <td style="font-size:12px;color:var(--text-muted);">{{ m.created_at|date:"d M Y H:i" }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="4" style="text-align:center;color:var(--text-muted);padding:24px;">{% trans "No movements recorded" %}</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
